@@ -46,16 +46,76 @@
             background-color: #38bdf8;
             color: #0f172a;
         }
+        /* Bloc de logos institutionnels */
+        .logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            background: #ffffff;
+            padding: 12px;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+        .logos a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logos img {
+            height: 38px;
+            width: auto;
+            object-fit: contain;
+        }
+        .logos img.nivose {
+            height: 48px;
+            border-radius: 50%;
+        }
+        /* Ligne des affiliations */
+        .affiliations {
+            font-size: 0.9em;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+        .affiliations a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+        .affiliations a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <img src="avatar.jpg" alt="Avatar" class="avatar">
         <h1>Pierre Marcou</h1>
-        <p>Doctorant — Université de Lorraine (LOTERR)</p>
-        
+        <p class="affiliations">
+            Doctorant — Université de Lorraine (LOTERR)<br>
+            <a href="https://www.uliege.be/" target="_blank" rel="noopener">Université de Liège</a> — Laboratoire de Climatologie et Topoclimatologie<br>
+            Membre de <a href="https://nivose-vosges.org/" target="_blank" rel="noopener">Niv'OSE</a>
+        </p>
+
+        <!-- Logos institutionnels -->
+        <div class="logos">
+            <a href="https://www.univ-lorraine.fr/" target="_blank" rel="noopener" title="Université de Lorraine">
+                <img src="logo-ul.jpg" alt="Université de Lorraine">
+            </a>
+            <a href="https://loterr.univ-lorraine.fr/" target="_blank" rel="noopener" title="LOTERR">
+                <img src="logo-loterr.jpg" alt="LOTERR">
+            </a>
+            <a href="https://www.uliege.be/" target="_blank" rel="noopener" title="Université de Liège">
+                <img src="logo-uliege.jpg" alt="Université de Liège">
+            </a>
+            <a href="https://nivose-vosges.org/" target="_blank" rel="noopener" title="Niv'OSE">
+                <img src="logo-nivose.jpg" alt="Niv'OSE" class="nivose">
+            </a>
+        </div>
+
         <a href="https://www.linkedin.com/in/pierre-marcou-a17483255/" class="link-button" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://loterr.univ-lorraine.fr/doctorant/marcou-pierre/" class="link-button" target="_blank" rel="noopener">LOTERR — Université de Lorraine</a>
+        <a href="https://nivose-vosges.org/" class="link-button" target="_blank" rel="noopener">🖼️ Niv'OSE — Site officiel</a>
         <a href="mailto:pierre.marcou@univ-lorraine.fr" class="link-button">M'envoyer un e-mail</a>
     </div>
 </body>
