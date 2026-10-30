@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coauteurs de la publication</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --border: #334155;
+            --accent: #38bdf8;
+            --text: #f8fafc;
+            --muted: #94a3b8;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 24px 16px 48px;
+            display: flex;
+            justify-content: center;
+        }
+        .container { width: 100%; max-width: 760px; }
+        .header { text-align: center; margin-bottom: 24px; }
+        img.avatar {
+            width: 90px; height: 90px; border-radius: 50%;
+            border: 2px solid var(--accent); margin-bottom: 12px;
+            object-fit: cover;
+        }
+        h1 { font-size: 1.5rem; margin: 0 0 8px; }
+        .affiliations {
+            font-size: 0.9em; line-height: 1.5;
+            color: var(--muted); margin: 0;
+        }
+        .affiliations a { color: var(--accent); text-decoration: none; }
+        .affiliations a:hover { text-decoration: underline; }
+
+        .logos {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: center; gap: 12px;
+            background: #ffffff; padding: 12px; border-radius: 12px;
+            margin: 18px 0 24px;
+        }
+        .logos a { display: inline-flex; align-items: center; }
+        .logos img { height: 34px; width: auto; object-fit: contain; }
+        .logos img.nivose { height: 44px; border-radius: 50%; }
+
+        .publication {
+            background: var(--card); border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            border-radius: 12px; padding: 16px 18px; margin-bottom: 24px;
+        }
+        .publication h2 { font-size: 1.05rem; margin: 0 0 8px; line-height: 1.4; }
+        .publication .meta { font-size: 0.85em; color: var(--muted); margin: 0; }
+        .publication a { color: var(--accent); text-decoration: none; }
+        .publication a:hover { text-decoration: underline; }
+
+        .section-title {
+            font-size: 1.1rem; margin: 0 0 14px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .section-title::before {
+            content: ""; display: inline-block;
+            width: 4px; height: 18px;
+            background: var(--accent); border-radius: 2px;
+        }
+        .coauthors {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 12px; margin-bottom: 28px;
+        }
+        @media (max-width: 560px) { .coauthors { grid-template-columns: 1fr; } }
+        .coauthor {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 14px 16px;
+            display: flex; flex-direction: column; gap: 8px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .coauthor:hover { border-color: var(--accent); transform: translateY(-1px); }
+        .coauthor .name { font-weight: 700; font-size: 1rem; margin: 0; }
+        .coauthor .role { font-size: 0.82em; color: var(--muted); margin: 0; line-height: 1.35; }
+        .coauthor .actions { display: flex; gap: 8px; margin-top: 4px; flex-wrap: wrap; }
+        .coauthor .actions a {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 0.8em; padding: 6px 10px; border-radius: 8px;
+            text-decoration: none; border: 1px solid var(--border);
+            color: var(--text);
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+        .coauthor .actions a.profile:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+        .coauthor .actions a.mail:hover { background: #22c55e; color: var(--bg); border-color: #22c55e; }
+        .coauthor .actions svg { width: 14px; height: 14px; }
+        .coauthor .actions a.disabled { opacity: 0.5; pointer-events: none; }
+
+        a.link-button {
+            display: block; background-color: var(--card); color: var(--text);
+            text-decoration: none; padding: 14px 15px; margin: 10px 0;
+            border-radius: 12px; border: 1px solid var(--border);
+            font-weight: 600; transition: background 0.2s, color 0.2s;
+            text-align: center;
+        }
+        a.link-button:hover { background-color: var(--accent); color: var(--bg); }
+        .footer-note { font-size: 0.75em; color: var(--muted); text-align: center; margin-top: 24px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="header">
+            <img src="avatar.jpg" alt="Avatar" class="avatar">
+            <h1>Pierre Marcou</h1>
+            <p class="affiliations">
+                Doctorant — Université de Lorraine (LOTERR)<br>
+                Université de Liège — Laboratoire de Climatologie et Topoclimatologie<br>
+                Membre de <a href="https://nivose-vosges.org/" target="_blank" rel="noopener">Niv'OSE</a>
+            </p>
+        </div>
+
+        <div class="logos">
+            <a href="https://www.univ-lorraine.fr/" target="_blank" rel="noopener" title="Université de Lorraine">
+                <img src="logo-ul.jpg" alt="Université de Lorraine">
+            </a>
+            <a href="https://loterr.univ-lorraine.fr/" target="_blank" rel="noopener" title="LOTERR">
+                <img src="logo-loterr.jpg" alt="LOTERR">
+            </a>
+            <a href="https://www.uliege.be/" target="_blank" rel="noopener" title="Université de Liège">
+                <img src="logo-uliege.jpg" alt="Université de Liège">
+            </a>
+            <a href="https://nivose-vosges.org/" target="_blank" rel="noopener" title="Niv'OSE">
+                <img src="logo-nivose.jpg" alt="Niv'OSE" class="nivose">
+            </a>
+        </div>
+
+        <div class="publication">
+            <h2>Titre de la publication — <em>à compléter</em></h2>
+            <p class="meta">
+                <strong>Auteurs :</strong> P. Marcou, X. Fettweis, C. Lang Delus, G. Drogue, S. Lebaut, P.-M. David<br>
+                <strong>Revue :</strong> — Année — <a href="#" target="_blank" rel="noopener">DOI / lien</a>
+            </p>
+        </div>
+
+        <h3 class="section-title">Coauteurs</h3>
+        <div class="coauthors">
+
+            <!-- Xavier Fettweis -->
+            <div class="coauthor">
+                <p class="name">Xavier Fettweis</p>
+                <p class="role">Université de Liège — Climatologie et Topoclimatologie</p>
+                <div class="actions">
+                    <a class="profile" href="https://www.uliege.be/cms/c_9054334/en?uid=u204898" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Profil
+                    </a>
+                    <a class="mail" href="mailto:xavier.fettweis@uliege.be">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+                        Email
+                    </a>
+                </div>
+            </div>
+
+            <!-- Claire Lang Delus -->
+            <div class="coauthor">
+                <p class="name">Claire Lang Delus</p>
+                <p class="role">Université de Lorraine — LOTERR</p>
+                <div class="actions">
+                    <a class="profile" href="https://loterr.univ-lorraine.fr/enseignant-chercheur/lang-delus-claire/" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Profil
+                    </a>
+                    <a class="mail" href="mailto:claire.delus@univ-lorraine.fr">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+                        Email
+                    </a>
+                </div>
+            </div>
+
+            <!-- Gilles Drogue -->
+            <div class="coauthor">
+                <p class="name">Gilles Drogue</p>
+                <p class="role">Université de Lorraine — LOTERR (Directeur adjoint)</p>
+                <div class="actions">
+                    <a class="profile" href="https://loterr.univ-lorraine.fr/enseignant-chercheur/drogue-gilles/" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Profil
+                    </a>
+                    <a class="mail" href="mailto:gilles.drogue@univ-lorraine.fr">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+                        Email
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sébastien Lebaut -->
+            <div class="coauthor">
+                <p class="name">Sébastien Lebaut</p>
+                <p class="role">Université de Lorraine — LOTERR</p>
+                <div class="actions">
+                    <a class="profile" href="#" class="disabled" title="Profil à compléter">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Profil
+                    </a>
+                    <a class="mail" href="mailto:sebastien.lebaut@univ-lorraine.fr">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+                        Email
+                    </a>
+                </div>
+            </div>
+
+            <!-- Pierre-Marie David -->
+            <div class="coauthor">
+                <p class="name">Pierre-Marie David</p>
+                <p class="role">— Affiliation à compléter —</p>
+                <div class="actions">
+                    <a class="profile" href="#" class="disabled" title="Profil à compléter">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Profil
+                    </a>
+                    <a class="mail" href="#" class="disabled" title="Email à compléter">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+                        Email
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <h3 class="section-title">Mes liens</h3>
+        <a href="https://www.linkedin.com/in/pierre-marcou-a17483255/" class="link-button" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://loterr.univ-lorraine.fr/doctorant/marcou-pierre/" class="link-button" target="_blank" rel="noopener">LOTERR — Profil</a>
+        <a href="https://loterr.univ-lorraine.fr" class="link-button" target="_blank" rel="noopener">LOTERR — Site du laboratoire</a>
+        <a href="https://www.climato.uliege.be/cms/c_4471902/fr/climato" class="link-button" target="_blank" rel="noopener">Climatologie &amp; Topoclimatologie — ULiège</a>
+        <a href="https://nivose-vosges.org/" class="link-button" target="_blank" rel="noopener">Niv'OSE — Site</a>
+        <a href="mailto:pierre.marcou@univ-lorraine.fr" class="link-button">M'envoyer un e-mail</a>
+
+        <p class="footer-note">Page générée pour la publication citée ci-dessus.</p>
+    </div>
+</body>
+</html>
